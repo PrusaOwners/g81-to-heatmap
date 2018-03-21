@@ -28,6 +28,7 @@ The Prusa i3 MK3 uses **G80** do mesh bed leveling, after which **G81** becomes 
 
 1. Do a mesh bed level operation by selecting it in your printer's interface or by executing **G80** directly with all of its prereqs, check your printer's documentation.
 2. Send a **G81** command to your printer via a tool like Octoprint or Pronterface. For this example we'll use Pronterface, as it's part of Prusa's Slic3r install package. You'll get output similar to the following:
+
     ```
       0.16417  0.17111  0.17528  0.17667  0.17528  0.17111  0.16417
       0.16213  0.16579  0.16805  0.16889  0.16832  0.16635  0.16296
@@ -39,6 +40,7 @@ The Prusa i3 MK3 uses **G80** do mesh bed leveling, after which **G81** becomes 
     ```
 3. Copy the above output and place it in the script in the **g81_output_raw** string variable. Note the """ around the block, this will allow you to have a multiline string.
 4. Adjust the regex rules underneath to clean this up or replace things as needed. Ultimately, you want the above to become this:
+
     ```
     0.16417,0.17111,0.17528,0.17667,0.17528,0.17111,0.16417
     0.16213,0.16579,0.16805,0.16889,0.16832,0.16635,0.16296
