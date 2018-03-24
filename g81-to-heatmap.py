@@ -12,21 +12,21 @@ import matplotlib.pyplot as plt
 # Your regex replace rules below will clean it
 # and make it ready for conversion to a list of
 # float values.
-g81_output_raw = """  0.16417  0.17111  0.17528  0.17667  0.17528  0.17111  0.16417
-  0.16213  0.16579  0.16805  0.16889  0.16832  0.16635  0.16296
-  0.15991  0.16129  0.16224  0.16278  0.16289  0.16258  0.16185
-  0.15750  0.15759  0.15787  0.15833  0.15898  0.15981  0.16083
-  0.15491  0.15471  0.15493  0.15556  0.15659  0.15805  0.15991
-  0.15213  0.15264  0.15342  0.15444  0.15573  0.15727  0.15907
-  0.14917  0.15139  0.15333  0.15500  0.15639  0.15750  0.15833"""
+g81_output_raw = """  0.13083  0.13491  0.13713  0.13750  0.13602  0.13269  0.12750
+  0.12806  0.13072  0.13214  0.13231  0.13124  0.12893  0.12537
+  0.12667  0.12803  0.12871  0.12870  0.12800  0.12662  0.12454
+  0.12667  0.12685  0.12685  0.12667  0.12630  0.12574  0.12500
+  0.12806  0.12717  0.12655  0.12620  0.12612  0.12631  0.12676
+  0.13083  0.12899  0.12782  0.12731  0.12748  0.12831  0.12981
+  0.13500  0.13231  0.13065  0.13000  0.13037  0.13176  0.13417"""
 
 # Define your regex rules here depending on how
 # your raw output looks. Ultimately, you want to
 # arrive at several lines of comma separated
 # float values, so split() works well later.
-g81_output_parsed = re.sub(r"^  ", "", g81_output_raw)
-g81_output_parsed = re.sub(r"\n  ", "\n", g81_output_parsed)
-g81_output_parsed = re.sub(r"  ", ",", g81_output_parsed)
+g81_output_parsed = re.sub(r"^[ ]+", "", g81_output_raw)
+g81_output_parsed = re.sub(r"\n[ ]+", "\n", g81_output_parsed)
+g81_output_parsed = re.sub(r"[ ]+", ",", g81_output_parsed)
 
 # We're about to convert these strings into floats,
 # this list will hold onto those.
