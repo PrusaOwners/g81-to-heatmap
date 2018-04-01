@@ -12,13 +12,13 @@ import matplotlib.pyplot as plt
 # Your regex replace rules below will clean it
 # and make it ready for conversion to a list of
 # float values.
-g81_output_raw = """  0.10667  0.18056  0.22583  0.24250  0.23056  0.19000  0.12083
-  0.09296  0.12148  0.14083  0.15102  0.15204  0.14389  0.12657
-    0.08685  0.08265  0.08321  0.08852  0.09858  0.11340  0.13296
-      0.08833  0.06407  0.05296  0.05500  0.07019  0.09852  0.14000
-        0.09741  0.06574  0.05009  0.05046  0.06685  0.09926  0.14769
-          0.11407  0.08765  0.07460  0.07491  0.08858  0.11562  0.15602
-            0.13833  0.12981  0.12648  0.12833  0.13537  0.14759  0.16500"""
+g81_output_raw = """  0.16417  0.17111  0.17528  0.17667  0.17528  0.17111  0.16417
+  0.16213  0.16579  0.16805  0.16889  0.16832  0.16635  0.16296
+  0.15991  0.16129  0.16224  0.16278  0.16289  0.16258  0.16185
+  0.15750  0.15759  0.15787  0.15833  0.15898  0.15981  0.16083
+  0.15491  0.15471  0.15493  0.15556  0.15659  0.15805  0.15991
+  0.15213  0.15264  0.15342  0.15444  0.15573  0.15727  0.15907
+  0.14917  0.15139  0.15333  0.15500  0.15639  0.15750  0.15833"""
 
 # Define your regex rules here depending on how
 # your raw output looks. Ultimately, you want to
@@ -40,8 +40,12 @@ for line in g81_output_parsed.splitlines():
 
 # Let's take our list of lists and make it into
 # a numpy array that matplotlib can do something
-# with.
-g81_array = np.array(g81_list_of_lists)
+# with. We'll also take this opportunity to
+# reverse the order (Y Axis). Of course, this will
+# make things upside down for the user. So, we'll
+# flip it again before rendering the heatmap image.
+# This lets us get 0,0 at the bottom left corner.
+g81_array = np.array(list(reversed(g81_list_of_lists)))
 
 # Set figure and gca objects, this will let us
 # adjust things about our heatmap image as well
@@ -59,11 +63,15 @@ plt.imshow(g81_array, interpolation='spline16', cmap='plasma')
 # we generate it. Things like labeling the axes and
 # colorbar, and setting the X axis label/ticks to
 # the top to better match the G81 output.
+plt.title("Mesh Level Correction Results")
 plt.xlabel("X Axis")
 plt.ylabel("Y Axis")
 plt.colorbar(label="Bed Variance (in mm)")
-ax.xaxis.set_ticks_position('top')
-ax.xaxis.set_label_position('top')
+
+# Flip that Y Axis again to put 0 at the bottom.
+# Since we inverted our Y Axis above as well, this
+# will also correct the view on the final heatmap.
+ax.invert_yaxis()
 
 # Save our graph as an image in the current directory.
 fig.savefig('g81_heatmap.png')
