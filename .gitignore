@@ -1,0 +1,3 @@
+# Ignore the g81-venv directory used
+# for virtualenv.
+g81-venv/
