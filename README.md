@@ -40,7 +40,7 @@ The Prusa i3 MK3 uses **G80** do mesh bed leveling, after which **G81** becomes 
       0.14917  0.15139  0.15333  0.15500  0.15639  0.15750  0.15833
     ```
 3. Copy the above output and place it in the script in the **g81_output_raw** string variable. Note the """ around the block, this will allow you to have a multiline string.
-4. Adjust the regex rules underneath to clean this up or replace things as needed. Ultimately, you want the above to become this:
+4. Optional: Adjust the regex rules underneath to clean this up or replace things as needed. Defaults are already in place for Prusa G81 output, you shouldn't need to adjust unless your output differs from the above example. Ultimately, you want your output to become this:
 
     ```
     0.16417,0.17111,0.17528,0.17667,0.17528,0.17111,0.16417
