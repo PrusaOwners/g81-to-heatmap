@@ -1,7 +1,8 @@
 # g81-to-heatmap
 This script converts 3D printer "G81" bed mesh level output (Prusa, maybe others) to a heatmap for easy viewing. For example, your printer may output the following with G81:
 
-```  0.16417  0.17111  0.17528  0.17667  0.17528  0.17111  0.16417
+```
+  0.16417  0.17111  0.17528  0.17667  0.17528  0.17111  0.16417
   0.16213  0.16579  0.16805  0.16889  0.16832  0.16635  0.16296
   0.15991  0.16129  0.16224  0.16278  0.16289  0.16258  0.16185
   0.15750  0.15759  0.15787  0.15833  0.15898  0.15981  0.16083
