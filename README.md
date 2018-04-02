@@ -1,4 +1,8 @@
 # g81-to-heatmap
+## OctoPrint Plugin
+OctoPrint user? Check out [OctoPrint-PrusaMeshMap](https://github.com/ff8jake/OctoPrint-PrusaMeshMap)!
+
+## Description
 This script converts 3D printer "G81" bed mesh level output (Prusa, maybe others) to a heatmap for easy viewing. For example, your printer may output the following with G81:
 
 ```
